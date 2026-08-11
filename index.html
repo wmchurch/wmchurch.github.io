@@ -3,8 +3,39 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>세계선교교회 | World Mission Church</title>
-<meta name="description" content="새롭게 변화되는 교회, 세계선교교회 — 주일예배 안내, 설교 영상, 매일 묵상, 성경통독, 선교지 소식">
+<title>세계선교교회 — 분당 정자동 | World Mission Church</title>
+<meta name="description" content="경기도 성남시 분당구 정자동 세계선교교회(그리스도의 교회). 새롭게 변화되는 교회 — 주일예배 오전 11시, 설교 영상, 매일 묵상, 성경통독, 세계 선교지 소식.">
+<link rel="canonical" href="https://wmchurch.github.io/">
+<meta name="robots" content="index, follow">
+<!-- SNS·카카오톡 공유 미리보기 -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="세계선교교회 — 분당 정자동 | World Mission Church">
+<meta property="og:description" content="새롭게 변화되는 교회 (사 43:19). 주일예배 오전 11시 · 설교 영상 · 매일 묵상 · 성경통독 · 선교지 소식">
+<meta property="og:url" content="https://wmchurch.github.io/">
+<meta property="og:locale" content="ko_KR">
+<!-- 검색엔진용 교회 정보 (구조화 데이터) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Church",
+  "name": "세계선교교회",
+  "alternateName": "World Mission Church",
+  "url": "https://wmchurch.github.io/",
+  "telephone": "+82-10-4455-1207",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "정자동 121 상록마을 우성종합상가 3층",
+    "addressLocality": "성남시 분당구",
+    "addressRegion": "경기도",
+    "addressCountry": "KR"
+  },
+  "openingHoursSpecification": [
+    {"@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "11:00", "closes": "13:00", "description": "주일오전예배"},
+    {"@type": "OpeningHoursSpecification", "dayOfWeek": "Wednesday", "opens": "19:00", "closes": "20:30", "description": "수요예배"},
+    {"@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "19:00", "closes": "20:30", "description": "금요 성경통독"}
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700;900&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -413,32 +444,69 @@ const SITE_DATA = {
     {
       date: "2026. 08. 09",
       title: "새 일을 행하시는 주님",
-      ref: "이사야 66:1–24",
-      youtubeId: "",
+      ref: "이사야 66:1–24 · 이사야서 강해 마지막",
+      youtubeId: "oBAVJUTwG18",
       summary: [
-        "하늘이 보좌, 땅이 발판이신 하나님은 겸손하고 마음이 상한 자를 돌아보십니다.",
-        "이사야서의 결론: 심판 너머 새 하늘과 새 땅을 창조하시는 하나님의 약속.",
-        "모든 민족이 하나님의 영광을 보게 하시려는 선교적 부르심에 응답합시다."
+        "하늘이 보좌, 땅이 발판이신 하나님께서 찾으시는 것은 건물이 아니라 마음이 가난하고 심령에 통회하며 말씀을 듣고 떠는 사람입니다 (1–2절).",
+        "시온이 진통하기 전에 해산하듯, 하나님의 새 일은 사람의 계산을 뛰어넘어 순식간에 이루어지며 어머니의 위로같이 우리를 품습니다 (7–13절).",
+        "새 하늘과 새 땅을 창조하시는 하나님은 모든 민족과 언어 가운데서 당신의 영광을 보게 하십니다 — 세계선교로 부르시는 이사야서 강해의 결론입니다 (18–23절)."
       ]
-    },
-    {
-      date: "2026. 08. 02",
-      title: "이사야서 강해",
-      ref: "이사야 65장",
-      youtubeId: "",
-      summary: ["지난 주 설교 요약을 이곳에 입력합니다."]
     }
   ],
 
-  // ── 오늘의 묵상 ──
-  devotion: {
-    date: "2026. 08. 10 (월)",
-    title: "새 일을 기대하는 아침",
-    ref: "이사야 43:18–19",
-    verse: "보라 내가 새 일을 행하리니 이제 나타낼 것이라 너희가 그것을 알지 못하겠느냐 반드시 내가 광야에 길을 사막에 강을 내리니",
-    body: "지난 일에 매이지 말라고 하십니다. 하나님은 광야 같은 오늘에도 길을 내시는 분입니다. 내 계획이 막힌 자리가, 하나님의 새 일이 시작되는 자리일 수 있습니다.",
-    prayer: "오늘 하루, 익숙한 어제가 아니라 주님이 여시는 새 길을 기대하며 걷게 하소서."
-  },
+  // ── 이번 주 매일 묵상 (월–토) ──
+  //    사이트가 접속한 날짜에 맞는 묵상을 자동으로 표시합니다.
+  //    key는 "YYYY-MM-DD" 형식. 매주 6개를 새로 채워 넣으면 됩니다.
+  devotions: [
+    {
+      key: "2026-08-10", date: "2026. 08. 10 (월)",
+      title: "하나님이 구하시는 것",
+      ref: "미가 6:8",
+      verse: "여호와께서 네게 구하시는 것은 오직 정의를 행하며 인자를 사랑하며 겸손하게 네 하나님과 함께 행하는 것이 아니냐",
+      body: "이사야서의 긴 여정을 마친 첫 월요일입니다. 하나님의 뜻은 멀리 있지 않습니다. 오늘 만나는 사람에게 정의롭게, 인자하게, 그리고 하나님 앞에 겸손하게 — 이 세 걸음이 한 주의 시작입니다.",
+      prayer: "거창한 계획보다, 오늘 하루를 주님과 함께 걷는 겸손을 주소서."
+    },
+    {
+      key: "2026-08-11", date: "2026. 08. 11 (화)",
+      title: "뜻을 분별하는 사람",
+      ref: "로마서 12:1–2",
+      verse: "너희는 이 세대를 본받지 말고 오직 마음을 새롭게 함으로 변화를 받아 하나님의 선하시고 기뻐하시고 온전하신 뜻이 무엇인지 분별하도록 하라",
+      body: "다음 주일부터 '하나님의 뜻' 주제설교가 시작됩니다. 뜻을 아는 길은 정보가 아니라 변화입니다. 마음이 새로워질 때, 전에는 보이지 않던 하나님의 뜻이 보이기 시작합니다.",
+      prayer: "세상의 방식이 아니라 새로워진 마음으로 주님의 뜻을 분별하게 하소서."
+    },
+    {
+      key: "2026-08-12", date: "2026. 08. 12 (수)",
+      title: "여호와 보시기에",
+      ref: "사무엘하 11:27",
+      verse: "다윗이 행한 그 일이 여호와 보시기에 악하였더라",
+      body: "오늘 수요예배 본문입니다. 다윗의 실패는 사람들 눈에는 감춰졌지만 여호와 보시기에는 드러났습니다. 내 하루의 기준은 사람의 시선이 아니라 하나님의 시선입니다. 오늘 저녁, 말씀 앞에 함께 앉읍시다.",
+      prayer: "사람 앞이 아니라 주님 보시기에 정직한 하루를 살게 하소서."
+    },
+    {
+      key: "2026-08-13", date: "2026. 08. 13 (목)",
+      title: "이것이 하나님의 뜻이니",
+      ref: "데살로니가전서 5:16–18",
+      verse: "항상 기뻐하라 쉬지 말고 기도하라 범사에 감사하라 이것이 그리스도 예수 안에서 너희를 향하신 하나님의 뜻이니라",
+      body: "하나님의 뜻이 무엇인지 성경이 직접 답해 주는 드문 구절입니다. 특별한 사건이 아니라 기뻐하고, 기도하고, 감사하는 일상 — 그 평범한 자리가 이미 하나님의 뜻 한가운데입니다.",
+      prayer: "오늘 하루의 작은 일들 속에서 기쁨과 기도와 감사를 잃지 않게 하소서."
+    },
+    {
+      key: "2026-08-14", date: "2026. 08. 14 (금)",
+      title: "내 발에 등, 내 길에 빛",
+      ref: "시편 119:105",
+      verse: "주의 말씀은 내 발에 등이요 내 길에 빛이니이다",
+      body: "오늘 저녁 7시는 금요 성경통독의 시간입니다. 말씀은 인생 전체를 한 번에 비추는 조명등이 아니라, 오늘 내딛을 한 걸음을 비추는 발의 등불입니다. 한 장 한 장 읽는 걸음이 곧 길이 됩니다.",
+      prayer: "말씀을 읽는 이 저녁, 다음 한 걸음을 비추는 빛을 만나게 하소서."
+    },
+    {
+      key: "2026-08-15", date: "2026. 08. 15 (토)",
+      title: "주일을 준비하는 마음",
+      ref: "잠언 3:5–6",
+      verse: "너는 마음을 다하여 여호와를 신뢰하고 네 명철을 의지하지 말라 너는 범사에 그를 인정하라 그리하면 네 길을 지도하시리라",
+      body: "내일은 '하나님의 뜻' 주제설교의 첫 주일입니다. 내 명철로 계산한 길이 아니라 주님이 지도하시는 길을 구하는 마음으로, 몸과 마음을 미리 예배 앞에 내려놓읍시다.",
+      prayer: "내일 예배의 자리에서 주님의 뜻을 들을 수 있도록 마음을 준비시켜 주소서."
+    }
+  ],
 
   // ── 선교지 기도제목 ──
   missionPrayers: [
@@ -482,7 +550,15 @@ $("video-grid").innerHTML = SITE_DATA.sermons.map(s => `
     </div>
   </article>`).join("");
 
-const d = SITE_DATA.devotion;
+// 오늘 날짜에 맞는 묵상을 자동 선택 (일치하는 날이 없으면 지나간 것 중 가장 최근, 그것도 없으면 첫 번째)
+const today = new Date();
+const todayKey = today.getFullYear() + "-" +
+  String(today.getMonth() + 1).padStart(2, "0") + "-" +
+  String(today.getDate()).padStart(2, "0");
+const list = SITE_DATA.devotions;
+const d = list.find(x => x.key === todayKey)
+  || [...list].reverse().find(x => x.key < todayKey)
+  || list[0];
 $("devo-date").textContent = d.date;
 $("devo-title").textContent = d.title;
 $("devo-ref").textContent = d.ref;
