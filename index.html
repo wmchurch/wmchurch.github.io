@@ -142,6 +142,8 @@ table.sched td.first{font-weight:700;background:var(--paper)}
 .video-body .ref{font-size:.83rem;color:var(--muted);margin-bottom:10px}
 .video-body ul{margin-left:18px;font-size:.88rem;color:#3C4250}
 .video-body ul li{margin-bottom:5px}
+.yt-link{display:inline-block;margin-top:12px;font-size:.84rem;font-weight:700;color:var(--navy);border-bottom:2px solid var(--gold);padding-bottom:2px;transition:color .2s}
+.yt-link:hover{color:var(--gold)}
 
 /* ── 묵상 · 통독 ────────────────────── */
 .devo-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px}
@@ -633,7 +635,9 @@ $("notice-list").innerHTML = SITE_DATA.notices.map(n => `<li>${n}</li>`).join(""
 $("video-grid").innerHTML = SITE_DATA.sermons.map(s => `
   <article class="video-card">
     <div class="video-frame">${s.youtubeId
-      ? `<iframe src="https://www.youtube.com/embed/${s.youtubeId}" title="${s.title}" allowfullscreen loading="lazy"></iframe>`
+      ? `<iframe src="https://www.youtube-nocookie.com/embed/${s.youtubeId}?rel=0" title="${s.title}"
+           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+           referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>`
       : `<div class="empty"><span class="cross">✝</span><span>영상 업로드 준비 중</span></div>`}
     </div>
     <div class="video-body">
@@ -641,6 +645,9 @@ $("video-grid").innerHTML = SITE_DATA.sermons.map(s => `
       <h4>${s.title}</h4>
       <p class="ref">${s.ref}</p>
       <ul>${s.summary.map(li => `<li>${li}</li>`).join("")}</ul>
+      ${s.youtubeId
+        ? `<a class="yt-link" href="https://www.youtube.com/watch?v=${s.youtubeId}" target="_blank" rel="noopener">유튜브에서 보기 →</a>`
+        : ``}
     </div>
   </article>`).join("");
 
