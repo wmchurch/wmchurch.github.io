@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>세계선교교회 — 분당 정자동 | World Mission Church</title>
-<meta name="description" content="경기도 성남시 분당구 정자동 세계선교교회(그리스도의 교회). 새롭게 변화되는 교회 — 주일예배 오전 11시, 설교 영상, 매일 묵상, 성경통독, 세계 선교지 소식.">
+<meta name="description" content="경기도 성남시 분당구 정자동 세계선교교회(그리스도의 교회). 새롭게 변화되는 교회 — 주일예배 오전 11시, 설교 다시듣기, 매일 묵상, 성경통독, 세계 선교지 소식.">
 <link rel="canonical" href="https://wmchurch.github.io/">
 <meta name="robots" content="index, follow">
 <!-- SNS·카카오톡 공유 미리보기 -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="세계선교교회 — 분당 정자동 | World Mission Church">
-<meta property="og:description" content="새롭게 변화되는 교회 (사 43:19). 주일예배 오전 11시 · 설교 영상 · 매일 묵상 · 성경통독 · 선교지 소식">
+<meta property="og:description" content="새롭게 변화되는 교회 (사 43:19). 주일예배 오전 11시 · 설교 다시듣기 · 매일 묵상 · 성경통독 · 선교지 소식">
 <meta property="og:url" content="https://wmchurch.github.io/">
 <meta property="og:locale" content="ko_KR">
 <!-- 검색엔진용 교회 정보 (구조화 데이터) -->
@@ -128,14 +128,15 @@ table.sched td.first{font-weight:700;background:var(--paper)}
 .btn.ghost{background:transparent;color:var(--navy);border:1px solid var(--navy)}
 .btn.ghost:hover{background:var(--navy);color:#fff}
 
-/* ── 설교 영상 ──────────────────────── */
+/* ── 설교 다시듣기 ──────────────────── */
 #sermons{background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .video-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:28px}
 .video-card{background:var(--paper);border:1px solid var(--line);display:flex;flex-direction:column}
-.video-frame{position:relative;aspect-ratio:16/9;background:var(--navy)}
-.video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-.video-frame .empty{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#8A97B0;font-size:.85rem;gap:6px}
-.video-frame .empty .cross{font-family:var(--serif);font-size:1.6rem;color:var(--gold)}
+.audio-frame{background:var(--navy);padding:26px 22px 22px;display:flex;flex-direction:column;align-items:center;gap:14px}
+.audio-frame .cross{font-family:var(--serif);font-size:1.5rem;color:var(--gold);line-height:1}
+.audio-frame .label{font-size:.74rem;letter-spacing:.22em;color:#8A97B0}
+.audio-frame audio{width:100%;height:40px}
+.audio-frame .empty{color:#8A97B0;font-size:.85rem;padding:6px 0}
 .video-body{padding:18px 20px 22px;flex:1}
 .video-body .date{font-size:.76rem;letter-spacing:.14em;color:var(--gold);font-weight:700}
 .video-body h4{font-family:var(--serif);font-weight:700;font-size:1.08rem;margin:6px 0 2px}
@@ -242,7 +243,7 @@ footer .greek{font-family:var(--serif);font-style:italic;color:#66738C}
     <nav class="menu">
       <a href="#worship">이번 주 예배</a>
       <a href="#news">교회소식</a>
-      <a href="#sermons">설교 영상</a>
+      <a href="#sermons">설교 다시듣기</a>
       <a href="#devotion">묵상 · 통독</a>
       <a href="#prayer">기도</a>
       <a href="#missions">선교지</a>
@@ -269,7 +270,7 @@ footer .greek{font-family:var(--serif);font-style:italic;color:#66738C}
   </div>
   <div class="hero-cards">
     <a href="#worship"><div class="t">주일예배 오전 11시</div><div class="d">인도 · 김태윤 담임목사</div></a>
-    <a href="#sermons"><div class="t">설교 다시보기</div><div class="d">유튜브 영상과 말씀 요약</div></a>
+    <a href="#sermons"><div class="t">설교 다시듣기</div><div class="d">설교 음성과 말씀 요약</div></a>
     <a href="#devotion"><div class="t">매일 묵상 · 성경통독</div><div class="d">오늘의 말씀과 통독 일정</div></a>
   </div>
 </div>
@@ -323,12 +324,12 @@ footer .greek{font-family:var(--serif);font-style:italic;color:#66738C}
   </div>
 </section>
 
-<!-- 설교 영상 -->
+<!-- 설교 다시듣기 -->
 <section id="sermons">
   <div class="wrap">
     <p class="eyebrow">SERMON ARCHIVE</p>
-    <h2 class="sec">설교 영상 · 말씀 요약</h2>
-    <p class="sec-desc">주일 설교 영상과 핵심 요약을 매주 업데이트합니다.</p>
+    <h2 class="sec">설교 다시듣기 · 말씀 요약</h2>
+    <p class="sec-desc">주일 설교 음성과 핵심 요약을 매주 업데이트합니다.</p>
     <div class="video-grid" id="video-grid"></div>
   </div>
 </section>
@@ -499,14 +500,15 @@ const SITE_DATA = {
     "2026 하반기 성경공부 일정 안내 — 장소: 세계선교교회 (아래 묵상·통독 일정표 참고)"
   ],
 
-  // ── 설교 영상 (youtubeId 에 유튜브 영상 ID만 입력, 예: "dQw4w9WgXcQ")
-  //    영상이 아직 없으면 youtubeId: "" 로 두면 안내 문구가 표시됩니다.
+  // ── 설교 다시듣기 (audioFile 에 저장소 audio 폴더의 음성 파일 경로 입력)
+  //    예: audioFile: "audio/2026-08-16.mp3"
+  //    음성이 아직 없으면 audioFile: "" 로 두면 안내 문구가 표시됩니다.
   sermons: [
     {
       date: "2026. 08. 16",
       title: "하나님의 뜻 (1)",
       ref: "마태복음 6:10, 로마서 8:28 · ‘하나님의 뜻’ 주제설교 첫째 주",
-      youtubeId: "",
+      audioFile: "",
       summary: [
         "“뜻이 하늘에서 이루어진 것같이 땅에서도 이루어지이다” — 주기도문이 가르치는 하나님의 뜻을 향한 기도 (마 6:10).",
         "하나님을 사랑하는 자, 그 뜻대로 부르심을 입은 자에게는 모든 것이 합력하여 선을 이룹니다 (롬 8:28).",
@@ -517,7 +519,7 @@ const SITE_DATA = {
       date: "2026. 08. 09",
       title: "새 일을 행하시는 주님",
       ref: "이사야 66:1–24 · 이사야서 강해 마지막",
-      youtubeId: "oBAVJUTwG18",
+      audioFile: "",
       summary: [
         "하늘이 보좌, 땅이 발판이신 하나님께서 찾으시는 것은 건물이 아니라 마음이 가난하고 심령에 통회하며 말씀을 듣고 떠는 사람입니다 (1–2절).",
         "시온이 진통하기 전에 해산하듯, 하나님의 새 일은 사람의 계산을 뛰어넘어 순식간에 이루어지며 어머니의 위로같이 우리를 품습니다 (7–13절).",
@@ -635,19 +637,23 @@ $("notice-list").innerHTML = SITE_DATA.notices.map(n => `<li>${n}</li>`).join(""
 
 $("video-grid").innerHTML = SITE_DATA.sermons.map(s => `
   <article class="video-card">
-    <div class="video-frame">${s.youtubeId
-      ? `<iframe src="https://www.youtube-nocookie.com/embed/${s.youtubeId}?rel=0" title="${s.title}"
-           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-           referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>`
-      : `<div class="empty"><span class="cross">✝</span><span>영상 업로드 준비 중</span></div>`}
+    <div class="audio-frame">
+      <span class="cross">✝</span>
+      <span class="label">SERMON AUDIO</span>
+      ${s.audioFile
+        ? `<audio controls preload="none">
+             <source src="${s.audioFile}" type="audio/mpeg">
+             브라우저가 음성 재생을 지원하지 않습니다.
+           </audio>`
+        : `<div class="empty">음성 업로드 준비 중</div>`}
     </div>
     <div class="video-body">
       <p class="date">${s.date}</p>
       <h4>${s.title}</h4>
       <p class="ref">${s.ref}</p>
       <ul>${s.summary.map(li => `<li>${li}</li>`).join("")}</ul>
-      ${s.youtubeId
-        ? `<a class="yt-link" href="https://www.youtube.com/watch?v=${s.youtubeId}" target="_blank" rel="noopener">유튜브에서 보기 →</a>`
+      ${s.audioFile
+        ? `<a class="yt-link" href="${s.audioFile}" download>음성 파일 받기 →</a>`
         : ``}
     </div>
   </article>`).join("");
