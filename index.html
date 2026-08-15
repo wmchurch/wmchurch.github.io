@@ -187,7 +187,45 @@ table.sched td.first{font-weight:700;background:var(--paper)}
 .serve div{padding:7px 0;border-bottom:1px dashed var(--line)}
 .serve span{color:var(--muted);margin-right:10px;font-size:.82rem}
 
-/* ── 푸터 ───────────────────────────── */
+/* ── 교회앨범 갤러리 ─────────────────── */
+#album{background:var(--white);border-top:1px solid var(--line)}
+.gallery{columns:3 300px;column-gap:16px}
+.g-item{break-inside:avoid;margin-bottom:16px;position:relative;overflow:hidden;border-radius:6px;cursor:pointer;box-shadow:0 2px 10px rgba(22,35,60,.10)}
+.g-item img{width:100%;display:block;transition:transform .5s ease}
+.g-item:hover img{transform:scale(1.04)}
+.g-item .cap{position:absolute;left:0;right:0;bottom:0;padding:26px 14px 12px;font-size:.8rem;color:#fff;background:linear-gradient(transparent,rgba(22,35,60,.82));opacity:0;transition:opacity .3s}
+.g-item:hover .cap{opacity:1}
+.lightbox{position:fixed;inset:0;background:rgba(13,20,35,.94);display:none;align-items:center;justify-content:center;z-index:100;flex-direction:column;gap:14px;padding:24px}
+.lightbox.open{display:flex}
+.lightbox img{max-width:92vw;max-height:78vh;border-radius:4px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.lb-caption{color:#C9D2E4;font-size:.9rem;text-align:center}
+.lightbox button{position:absolute;background:none;border:none;color:#fff;cursor:pointer;opacity:.7;transition:opacity .2s;line-height:1}
+.lightbox button:hover{opacity:1}
+.lb-close{top:18px;right:26px;font-size:2.4rem}
+.lb-prev,.lb-next{top:50%;transform:translateY(-50%);font-size:3rem;padding:20px}
+.lb-prev{left:8px}.lb-next{right:8px}
+
+/* ── 디자인 세련화 레이어 ─────────────── */
+body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+.hero{background:radial-gradient(ellipse 120% 70% at 50% -10%,#24375E 0%,var(--navy) 55%)}
+.mast h1{text-shadow:0 2px 24px rgba(198,161,75,.18)}
+.card{border-radius:6px;box-shadow:0 2px 14px rgba(22,35,60,.06);transition:box-shadow .3s,transform .3s}
+.card:hover{box-shadow:0 8px 28px rgba(22,35,60,.11);transform:translateY(-2px)}
+.devo-card{border-radius:6px;box-shadow:0 8px 30px rgba(22,35,60,.22)}
+.video-card{border-radius:6px;overflow:hidden;box-shadow:0 2px 14px rgba(22,35,60,.07);transition:box-shadow .3s,transform .3s}
+.video-card:hover{box-shadow:0 10px 30px rgba(22,35,60,.13);transform:translateY(-3px)}
+.btn{border-radius:3px;box-shadow:0 2px 8px rgba(22,35,60,.16)}
+.btn.ghost{box-shadow:none}
+.hero-cards a{position:relative}
+.hero-cards a::after{content:"→";position:absolute;right:18px;top:50%;transform:translateY(-50%);color:var(--gold);opacity:0;transition:opacity .25s,right .25s}
+.hero-cards a:hover::after{opacity:1;right:14px}
+table.sched{border-radius:4px;overflow:hidden}
+.field{transition:background .3s}
+.field:hover{background:rgba(198,161,75,.06)}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}}
+
 footer{background:var(--navy);color:#8A97B0;padding:40px 0;font-size:.83rem;border-top:3px double var(--gold)}
 footer .f-in{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 footer .greek{font-family:var(--serif);font-style:italic;color:#66738C}
@@ -206,6 +244,7 @@ footer .greek{font-family:var(--serif);font-style:italic;color:#66738C}
       <a href="#devotion">묵상 · 통독</a>
       <a href="#prayer">기도</a>
       <a href="#missions">선교지</a>
+      <a href="#album">교회앨범</a>
       <a href="#visit">오시는 길</a>
     </nav>
   </div>
@@ -361,6 +400,25 @@ footer .greek{font-family:var(--serif);font-style:italic;color:#66738C}
     </div>
   </div>
 </section>
+
+<!-- 교회앨범 -->
+<section id="album">
+  <div class="wrap">
+    <p class="eyebrow">GALLERY</p>
+    <h2 class="sec">교회앨범</h2>
+    <p class="sec-desc">함께 예배하고, 함께 나누고, 함께 걸어온 순간들입니다. 사진을 누르면 크게 볼 수 있습니다.</p>
+    <div class="gallery" id="gallery"></div>
+  </div>
+</section>
+
+<!-- 라이트박스 -->
+<div class="lightbox" id="lightbox" role="dialog" aria-label="사진 크게 보기">
+  <button class="lb-close" aria-label="닫기">&times;</button>
+  <button class="lb-prev" aria-label="이전 사진">&#8249;</button>
+  <img id="lb-img" src="" alt="">
+  <button class="lb-next" aria-label="다음 사진">&#8250;</button>
+  <p class="lb-caption" id="lb-caption"></p>
+</div>
 
 <!-- 오시는 길 -->
 <section id="visit">
@@ -535,6 +593,23 @@ const SITE_DATA = {
     ["미얀마", "오승현·김은정 선교사", "양곤 캠프, 선교사 부부와 자녀들(시언·민하)을 위하여"],
     ["필리핀", "김종필 선교사", "따이산교회, 호마폰·리세틀멘 지역의 부흥을 위하여"],
     ["북한", "박원준 선교사", "요구르트 공장, 아동병원, 사역자 리쿠르트와 양육 사역을 위하여"]
+  ],
+
+  // ── 교회앨범 (photos 폴더에 사진 추가 후 여기에 한 줄씩 등록) ──
+  gallery: [
+    ["photos/photo-11.jpg", "창립 25주년 기념예배 · 김광준 원로목사 추대 감사예배 (2026. 3. 8)"],
+    ["photos/photo-06.jpg", "창립 25주년 감사예배를 마치고"],
+    ["photos/photo-04.jpg", "창립 25주년 기념예배 말씀 — 깨어나십시오"],
+    ["photos/photo-05.jpg", "창립 25주년 기념예배 대표기도"],
+    ["photos/photo-07.jpg", "감사예배 후 함께한 성도들"],
+    ["photos/photo-08.jpg", "김광준 원로목사님 추대 감사예배"],
+    ["photos/photo-03.jpg", "선교지도 앞에서, 원로 목회자들"],
+    ["photos/photo-01.jpg", "중앙지방회 사모님들 특송"],
+    ["photos/photo-13.jpg", "송구영신예배 찬양 인도 (2025. 12. 31)"],
+    ["photos/photo-12.jpg", "송구영신예배를 마치고"],
+    ["photos/photo-09.jpg", "주일 공동식사 — 사랑의 섬김"],
+    ["photos/photo-02.jpg", "카페에서의 친교"],
+    ["photos/photo-10.jpg", "예배당 — 세계선교교회"]
   ]
 };
 /* ========================== 데이터 끝 ========================== */
@@ -591,6 +666,45 @@ $("mission-pray").innerHTML = SITE_DATA.missionPrayers
 // 모바일 메뉴: 링크 클릭 시 닫기
 document.querySelectorAll(".menu a").forEach(a =>
   a.addEventListener("click", () => document.querySelector(".menu").classList.remove("open")));
+
+// ── 교회앨범 갤러리 + 라이트박스 ──
+$("gallery").innerHTML = SITE_DATA.gallery.map(([src, cap], i) => `
+  <figure class="g-item" data-i="${i}">
+    <img src="${src}" alt="${cap}" loading="lazy">
+    <figcaption class="cap">${cap}</figcaption>
+  </figure>`).join("");
+
+let lbIndex = 0;
+const lb = $("lightbox");
+function openLb(i){
+  lbIndex = (i + SITE_DATA.gallery.length) % SITE_DATA.gallery.length;
+  const [src, cap] = SITE_DATA.gallery[lbIndex];
+  $("lb-img").src = src;
+  $("lb-img").alt = cap;
+  $("lb-caption").textContent = cap;
+  lb.classList.add("open");
+  document.body.style.overflow = "hidden";
+}
+function closeLb(){ lb.classList.remove("open"); document.body.style.overflow = ""; }
+document.querySelectorAll(".g-item").forEach(el =>
+  el.addEventListener("click", () => openLb(+el.dataset.i)));
+document.querySelector(".lb-close").addEventListener("click", closeLb);
+document.querySelector(".lb-prev").addEventListener("click", e => { e.stopPropagation(); openLb(lbIndex - 1); });
+document.querySelector(".lb-next").addEventListener("click", e => { e.stopPropagation(); openLb(lbIndex + 1); });
+lb.addEventListener("click", e => { if (e.target === lb) closeLb(); });
+document.addEventListener("keydown", e => {
+  if (!lb.classList.contains("open")) return;
+  if (e.key === "Escape") closeLb();
+  if (e.key === "ArrowLeft") openLb(lbIndex - 1);
+  if (e.key === "ArrowRight") openLb(lbIndex + 1);
+});
+
+// ── 스크롤 등장 애니메이션 ──
+document.querySelectorAll(".card, .video-card, .devo-card, .field, .g-item").forEach(el => el.classList.add("reveal"));
+const io = new IntersectionObserver(entries => {
+  entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); } });
+}, { threshold: 0.12 });
+document.querySelectorAll(".reveal").forEach(el => io.observe(el));
 </script>
 </body>
 </html>
