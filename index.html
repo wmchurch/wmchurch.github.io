@@ -508,7 +508,7 @@ const SITE_DATA = {
       date: "2026. 08. 16",
       title: "하나님의 뜻 (1)",
       ref: "마태복음 6:10, 로마서 8:28 · ‘하나님의 뜻’ 주제설교 첫째 주",
-      audioFile: "",
+      audioFile: "audio/2026-08-16.m4a",
       summary: [
         "“뜻이 하늘에서 이루어진 것같이 땅에서도 이루어지이다” — 주기도문이 가르치는 하나님의 뜻을 향한 기도 (마 6:10).",
         "하나님을 사랑하는 자, 그 뜻대로 부르심을 입은 자에게는 모든 것이 합력하여 선을 이룹니다 (롬 8:28).",
@@ -642,7 +642,7 @@ $("video-grid").innerHTML = SITE_DATA.sermons.map(s => `
       <span class="label">SERMON AUDIO</span>
       ${s.audioFile
         ? `<audio controls preload="none">
-             <source src="${s.audioFile}" type="audio/mpeg">
+             <source src="${s.audioFile}" type="${s.audioFile.toLowerCase().endsWith(".m4a") ? "audio/mp4" : "audio/mpeg"}">
              브라우저가 음성 재생을 지원하지 않습니다.
            </audio>`
         : `<div class="empty">음성 업로드 준비 중</div>`}
