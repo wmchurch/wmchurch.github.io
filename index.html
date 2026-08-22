@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>세계선교교회 — 분당 정자동 | World Mission Church</title>
-<meta name="description" content="경기도 성남시 분당구 정자동 세계선교교회(그리스도의 교회). 새롭게 변화되는 교회 — 주일예배 오전 11시, 설교 다시듣기, 매일 묵상, 성경통독, 세계 선교지 소식.">
+<meta name="description" content="경기도 성남시 분당구 정자동 세계선교교회(그리스도의 교회). 새롭게 변화되는 교회 — 주일예배 오전 11시, 설교 영상, 매일 묵상, 성경통독, 세계 선교지 소식.">
 <link rel="canonical" href="https://wmchurch.github.io/">
 <meta name="robots" content="index, follow">
 <!-- SNS·카카오톡 공유 미리보기 -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="세계선교교회 — 분당 정자동 | World Mission Church">
-<meta property="og:description" content="새롭게 변화되는 교회 (사 43:19). 주일예배 오전 11시 · 설교 다시듣기 · 매일 묵상 · 성경통독 · 선교지 소식">
+<meta property="og:description" content="새롭게 변화되는 교회 (사 43:19). 주일예배 오전 11시 · 설교 영상 · 매일 묵상 · 성경통독 · 선교지 소식">
 <meta property="og:url" content="https://wmchurch.github.io/">
 <meta property="og:locale" content="ko_KR">
 <!-- 검색엔진용 교회 정보 (구조화 데이터) -->
@@ -128,21 +128,21 @@ table.sched td.first{font-weight:700;background:var(--paper)}
 .btn.ghost{background:transparent;color:var(--navy);border:1px solid var(--navy)}
 .btn.ghost:hover{background:var(--navy);color:#fff}
 
-/* ── 설교 다시듣기 ──────────────────── */
+/* ── 설교 영상 ──────────────────────── */
 #sermons{background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .video-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:28px}
 .video-card{background:var(--paper);border:1px solid var(--line);display:flex;flex-direction:column}
-.audio-frame{background:var(--navy);padding:26px 22px 22px;display:flex;flex-direction:column;align-items:center;gap:14px}
-.audio-frame .cross{font-family:var(--serif);font-size:1.5rem;color:var(--gold);line-height:1}
-.audio-frame .label{font-size:.74rem;letter-spacing:.22em;color:#8A97B0}
-.audio-frame audio{width:100%;height:40px}
-.audio-frame .empty{color:#8A97B0;font-size:.85rem;padding:6px 0}
+.video-frame{position:relative;aspect-ratio:16/9;background:var(--navy)}
+.video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.video-frame .empty{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#8A97B0;font-size:.85rem;gap:6px}
+.video-frame .empty .cross{font-family:var(--serif);font-size:1.6rem;color:var(--gold)}
 .video-body{padding:18px 20px 22px;flex:1}
 .video-body .date{font-size:.76rem;letter-spacing:.14em;color:var(--gold);font-weight:700}
 .video-body h4{font-family:var(--serif);font-weight:700;font-size:1.08rem;margin:6px 0 2px}
 .video-body .ref{font-size:.83rem;color:var(--muted);margin-bottom:10px}
 .video-body ul{margin-left:18px;font-size:.88rem;color:#3C4250}
 .video-body ul li{margin-bottom:5px}
+.video-body audio{width:100%;margin:10px 0 14px;height:40px}
 .yt-link{display:inline-block;margin-top:12px;font-size:.84rem;font-weight:700;color:var(--navy);border-bottom:2px solid var(--gold);padding-bottom:2px;transition:color .2s}
 .yt-link:hover{color:var(--gold)}
 
@@ -243,7 +243,7 @@ footer .greek{font-family:var(--serif);font-style:italic;color:#66738C}
     <nav class="menu">
       <a href="#worship">이번 주 예배</a>
       <a href="#news">교회소식</a>
-      <a href="#sermons">설교 다시듣기</a>
+      <a href="#sermons">설교 말씀</a>
       <a href="#devotion">묵상 · 통독</a>
       <a href="#prayer">기도</a>
       <a href="#missions">선교지</a>
@@ -270,7 +270,7 @@ footer .greek{font-family:var(--serif);font-style:italic;color:#66738C}
   </div>
   <div class="hero-cards">
     <a href="#worship"><div class="t">주일예배 오전 11시</div><div class="d">인도 · 김태윤 담임목사</div></a>
-    <a href="#sermons"><div class="t">설교 다시듣기</div><div class="d">설교 음성과 말씀 요약</div></a>
+    <a href="#sermons"><div class="t">설교 다시듣기</div><div class="d">주일 설교 음성과 말씀 요약</div></a>
     <a href="#devotion"><div class="t">매일 묵상 · 성경통독</div><div class="d">오늘의 말씀과 통독 일정</div></a>
   </div>
 </div>
@@ -291,7 +291,7 @@ footer .greek{font-family:var(--serif);font-style:italic;color:#66738C}
         <p style="margin-top:16px;font-size:.85rem;color:var(--muted)">※ 침례받기 원하시는 분은 폐회 찬송 시 강대상 앞으로 나오시기 바랍니다.</p>
         <div style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap">
           <a class="btn" id="bulletin-link" href="bulletins/2026-08-09.pdf">이번 주 주보 (PDF)</a>
-          <a class="btn ghost" href="#sermons">지난 설교 보기</a>
+          <a class="btn ghost" href="#sermons">지난 설교 듣기</a>
         </div>
       </div>
       <div>
@@ -324,7 +324,7 @@ footer .greek{font-family:var(--serif);font-style:italic;color:#66738C}
   </div>
 </section>
 
-<!-- 설교 다시듣기 -->
+<!-- 설교 영상 -->
 <section id="sermons">
   <div class="wrap">
     <p class="eyebrow">SERMON ARCHIVE</p>
@@ -466,26 +466,26 @@ footer .greek{font-family:var(--serif);font-style:italic;color:#66738C}
    ============================================================ */
 const SITE_DATA = {
   // ── 주보 발행 정보 ──
-  issue: "제 25권 33호",
-  date: "2026년 8월 16일",
-  bulletinPdf: "bulletins/2026-08-16.pdf",
+  issue: "제 25권 34호",
+  date: "2026년 8월 23일",
+  bulletinPdf: "bulletins/2026-08-23.pdf",
 
   // ── 주일 / 수요 말씀 ──
-  sermon: { title: "하나님의 뜻 (1)", ref: "마태복음 6:10, 로마서 8:28 · 김태윤 담임목사" },
-  wednesday: { title: "진정한 회개", ref: "사무엘하 12:1–25 · 김태윤 담임목사" },
+  sermon: { title: "하나님의 뜻 (2)", ref: "욥기 1:6–12 · 김태윤 담임목사" },
+  wednesday: { title: "암논과 다말", ref: "사무엘하 13:1–22 · 김태윤 담임목사" },
 
   // ── 예배 순서 ──
   order: [
     ["예배로의 부름 — 참회와 감사 그리고 찬양, 기도", "다 함께"],
-    ["찬송 15장 하나님의 크신 사랑", "다 함께"],
-    ["교독문 34 (시편 81편)", "다 함께"],
+    ["찬송 96장 예수님은 누구신가", "다 함께"],
+    ["교독문 35 (시편 84편)", "다 함께"],
     ["신앙고백 — 주는 그리스도시요 살아계신 하나님의 아들이시니이다", "다 함께"],
-    ["찬송 549장 내 주여 뜻대로", "다 함께"],
-    ["오늘의 기도", "성기옥 권사"],
+    ["찬송 370장 주 안에 있는 나에게", "다 함께"],
+    ["오늘의 기도", "엄선진 권사"],
     ["봉헌 50장 내게 있는 모든 것을 · 봉헌기도", "인도자"],
     ["교회소식 · 선교지소식", "인도자"],
-    ["성경봉독 마태복음 6:10, 로마서 8:28", "다 함께"],
-    ["말씀 — 하나님의 뜻 (1)", "김태윤 목사"],
+    ["성경봉독 욥기 1:6–12", "다 함께"],
+    ["말씀 — 하나님의 뜻 (2)", "김태윤 목사"],
     ["주의 만찬 (만찬위원 이기형 · 김준회 장로)", "다 함께"],
     ["찬송 270장 변찮는 주님의 사랑과", "다 함께"],
     ["축도", "김태윤 목사"]
@@ -493,32 +493,45 @@ const SITE_DATA = {
 
   // ── 교회소식 ──
   notices: [
-    "2026년 8월 셋째 주일 예배에 오신 성도님들 모두 주님의 이름으로 환영합니다.",
-    "김태윤 담임목사님은 오늘 오후 4시 복음창고교회(동대문구 안암로 122, 담임목회자 임용순 전도사)에서 말씀을 전합니다. 새롭게 개척된 주의 몸된 교회가 이름처럼 복음을 증거하는 복된 통로가 될 수 있도록 기도합니다.",
-    "김동현 형제는 2026년 2학기 교환학생으로 선발되어, 내일 미국 플로리다주로 출국합니다. 여정 가운데 주님께서 지키시고 은혜 가운데 이끌어주시길 기도합니다.",
-    "여름수련회 — 8/29(토)–30(일), 오륜비전빌리지. 주제: 하나님의 시간 (사무엘상)",
-    "2026 하반기 성경공부 일정 안내 — 장소: 세계선교교회 (아래 묵상·통독 일정표 참고)"
+    "2026년 8월 넷째 주일 예배에 오신 성도님들 모두 주님의 이름으로 환영합니다.",
+    "여름수련회가 다음 주말입니다 — 8/29(토)~30(주일), 오륜비전빌리지. 주제: 하나님의 시간 (사무엘상). 준비물: 세면도구, 수건, 성경책, 텀블러 등.",
+    "수련회 일정 — 29일(토) 14:00 개회예배·사무엘상 강해 1과 나눔, 18:00 저녁식사, 19:00 강해 2와 나눔, 21:00 자유시간·취침 / 30일(주일) 08:00 기상·아침식사, 09:00 주일예배·강해 3과 나눔, 점심식사 후 귀가.",
+    "수련회 장소 안내 — 예배: 벧엘하우스 세미나실 2 · 식사: 오륜하우스 식당 · 숙소: 비전하우스 412–416호."
   ],
 
-  // ── 설교 다시듣기 (audioFile 에 저장소 audio 폴더의 음성 파일 경로 입력)
-  //    예: audioFile: "audio/2026-08-16.mp3"
-  //    음성이 아직 없으면 audioFile: "" 로 두면 안내 문구가 표시됩니다.
+  // ── 설교 말씀 (audio: 음성 mp3 경로 — 매주 audio 폴더에 올린 파일명 입력)
+  //    youtubeId는 영상이 있을 때만 사용, 없으면 "" 로 둡니다.
   sermons: [
+    {
+      date: "2026. 08. 23",
+      title: "하나님의 뜻 (2)",
+      ref: "욥기 1:6–12 · ‘하나님의 뜻’ 주제설교 둘째 주",
+      youtubeId: "",
+      audio: "",
+      summary: [
+        "까닭 없이 닥친 고난 앞에 선 욥 — 하늘의 회의에서 시작된, 사람이 알 수 없는 하나님의 경륜 (욥 1:6–12).",
+        "고난은 하나님의 부재가 아니라, 여전히 하나님의 손안에 있는 시간입니다.",
+        "※ 설교 음성과 요약은 주일 말씀 후 업데이트됩니다."
+      ]
+    },
     {
       date: "2026. 08. 16",
       title: "하나님의 뜻 (1)",
       ref: "마태복음 6:10, 로마서 8:28 · ‘하나님의 뜻’ 주제설교 첫째 주",
-      audioFile: "audio/2026-08-16.mp3",
+      youtubeId: "",
+      audio: "audio/2026-08-16.mp3",
       summary: [
-        "“뜻이 하늘에서 이루어진 것같이 땅에서도 이루어지이다” — 주기도문은 내 뜻을 관철하는 기도가 아니라 하나님의 뜻에 나를 맞추는 기도입니다 (마 6:10).",
-        "하나님을 사랑하는 자, 그 뜻대로 부르심을 입은 자에게는 모든 것이 합력하여 선을 이룹니다 — 이해되지 않는 오늘의 일도 그 뜻 안에 있습니다 (롬 8:28)."
+        "“뜻이 하늘에서 이루어진 것같이 땅에서도 이루어지이다” — 주기도문이 가르치는 하나님의 뜻을 향한 기도 (마 6:10).",
+        "하나님을 사랑하는 자, 그 뜻대로 부르심을 입은 자에게는 모든 것이 합력하여 선을 이룹니다 (롬 8:28).",
+        "하나님은 그 모든 것을 다 재료로 삼으셔서, 우리 안에 그리스도의 형상을 닮아가게 하십니다 (설교 중에서)."
       ]
     },
     {
       date: "2026. 08. 09",
       title: "새 일을 행하시는 주님",
       ref: "이사야 66:1–24 · 이사야서 강해 마지막",
-      audioFile: "audio/2026-08-09.mp3",
+      youtubeId: "oBAVJUTwG18",
+      audio: "audio/2026-08-09.mp3",
       summary: [
         "하늘이 보좌, 땅이 발판이신 하나님께서 찾으시는 것은 건물이 아니라 마음이 가난하고 심령에 통회하며 말씀을 듣고 떠는 사람입니다 (1–2절).",
         "시온이 진통하기 전에 해산하듯, 하나님의 새 일은 사람의 계산을 뛰어넘어 순식간에 이루어지며 어머니의 위로같이 우리를 품습니다 (7–13절).",
@@ -532,60 +545,60 @@ const SITE_DATA = {
   //    key는 "YYYY-MM-DD" 형식. 매주 6개를 새로 채워 넣으면 됩니다.
   devotions: [
     {
-      key: "2026-08-16", date: "2026. 08. 16 (주일)",
-      title: "뜻이 땅에서도 이루어지이다",
-      ref: "마태복음 6:10",
-      verse: "나라가 임하시오며 뜻이 하늘에서 이루어진 것 같이 땅에서도 이루어지이다",
-      body: "오늘은 '하나님의 뜻' 주제설교가 시작되는 주일입니다. 주님이 가르쳐 주신 기도의 중심은 내 뜻의 성취가 아니라 하나님의 뜻이 이 땅에, 내 삶에 이루어지는 것입니다. 예배의 자리에서 그 뜻을 구합시다.",
-      prayer: "오늘 예배 가운데 주님의 뜻이 제 마음 밭에 심기게 하소서."
+      key: "2026-08-23", date: "2026. 08. 23 (주일)",
+      title: "주신 이도, 거두신 이도",
+      ref: "욥기 1:21",
+      verse: "주신 이도 여호와시요 거두신 이도 여호와시오니 여호와의 이름이 찬송을 받으실지니이다",
+      body: "오늘은 '하나님의 뜻' 두 번째 말씀, 욥의 이야기입니다. 모든 것을 잃은 날에도 욥은 예배를 잃지 않았습니다. 이해할 수 없는 일 앞에서도 예배의 자리를 지키는 것, 그것이 믿음입니다.",
+      prayer: "형통할 때나 어려울 때나 예배의 자리를 잃지 않게 하소서."
     },
     {
-      key: "2026-08-17", date: "2026. 08. 17 (월)",
-      title: "합력하여 선을 이루시는 하나님",
-      ref: "로마서 8:28",
-      verse: "우리가 알거니와 하나님을 사랑하는 자 곧 그의 뜻대로 부르심을 입은 자들에게는 모든 것이 합력하여 선을 이루느니라",
-      body: "한 주를 시작하며 계획대로 되지 않는 일들이 벌써 보일지 모릅니다. 그러나 하나님의 뜻 안에 있는 사람에게는 좋은 일만 아니라 '모든 것'이 재료가 됩니다. 오늘의 어긋남도 선을 이루는 과정일 수 있습니다.",
-      prayer: "이해되지 않는 일 앞에서도 선을 이루시는 주님의 손을 신뢰하게 하소서."
+      key: "2026-08-24", date: "2026. 08. 24 (월)",
+      title: "단련 후에는 순금 같이",
+      ref: "욥기 23:10",
+      verse: "그러나 내가 가는 길을 그가 아시나니 그가 나를 단련하신 후에는 내가 순금 같이 되어 나오리라",
+      body: "욥은 고난의 이유를 끝내 다 알지 못했지만, 하나님이 자신의 길을 아신다는 것은 붙들었습니다. 지금 지나는 길이 어두워도, 그 길을 아시는 분이 계십니다. 단련의 끝은 순금입니다.",
+      prayer: "이유를 몰라도, 제 길을 아시는 주님을 신뢰하며 오늘을 걷게 하소서."
     },
     {
-      key: "2026-08-18", date: "2026. 08. 18 (화)",
-      title: "뜻 행하기를 즐거워함",
-      ref: "시편 40:8",
-      verse: "나의 하나님이여 내가 주의 뜻 행하기를 즐기오니 주의 법이 나의 심중에 있나이다",
-      body: "하나님의 뜻은 억지로 지는 짐이 아니라 즐거움이 될 수 있습니다. 말씀이 마음 중심에 자리 잡을 때, 순종은 의무에서 기쁨으로 바뀝니다. 오늘 말씀 한 구절을 마음에 품고 다녀 봅시다.",
-      prayer: "주의 뜻을 마지못해서가 아니라 즐거움으로 행하는 하루가 되게 하소서."
+      key: "2026-08-25", date: "2026. 08. 25 (화)",
+      title: "잠시와 영원",
+      ref: "고린도후서 4:17–18",
+      verse: "우리가 잠시 받는 환난의 경한 것이 지극히 크고 영원한 영광의 중한 것을 우리에게 이루게 함이니",
+      body: "지금의 어려움은 '잠시'이고 '경한 것'이라고 말씀은 감히 말합니다. 보이는 것이 아니라 보이지 않는 영원을 바라볼 때, 오늘의 무게가 달라집니다.",
+      prayer: "보이는 어려움보다 보이지 않는 영광을 바라보는 눈을 주소서."
     },
     {
-      key: "2026-08-19", date: "2026. 08. 19 (수)",
-      title: "진정한 회개",
-      ref: "사무엘하 12:13",
-      verse: "다윗이 나단에게 이르되 내가 여호와께 죄를 범하였노라 하매",
-      body: "오늘 수요예배 본문입니다. 나단의 책망 앞에서 다윗은 변명하지 않고 한 문장으로 엎드렸습니다. 진정한 회개는 길게 설명하지 않습니다. 오늘 저녁, 말씀 앞에 정직하게 앉는 시간이 되길 바랍니다.",
-      prayer: "변명 대신 정직한 고백으로 주님 앞에 엎드리게 하소서."
+      key: "2026-08-26", date: "2026. 08. 26 (수)",
+      title: "죄의 시작을 다스리라",
+      ref: "야고보서 1:15",
+      verse: "욕심이 잉태한즉 죄를 낳고 죄가 장성한즉 사망을 낳느니라",
+      body: "오늘 수요예배는 다윗의 집안에 일어난 아픈 사건(삼하 13장)을 다룹니다. 방치된 욕심과 침묵이 한 가정을 무너뜨렸습니다. 죄는 자라기 전에, 시작에서 다스려야 합니다. 오늘 저녁 말씀 앞에 함께 앉읍시다.",
+      prayer: "마음의 작은 욕심을 자라기 전에 주님 앞에 내려놓게 하소서."
     },
     {
-      key: "2026-08-20", date: "2026. 08. 20 (목)",
-      title: "나를 보내신 이의 뜻",
-      ref: "요한복음 6:38",
-      verse: "내가 하늘에서 내려온 것은 내 뜻을 행하려 함이 아니요 나를 보내신 이의 뜻을 행하려 함이니라",
-      body: "예수님의 삶 전체가 '하나님의 뜻'의 정의입니다. 주님도 자기 뜻을 내려놓는 길을 걸으셨다면, 우리의 하루에도 내 뜻을 내려놓아야 할 자리가 있습니다. 오늘 그 자리가 어디인지 살펴봅시다.",
-      prayer: "내 뜻이 아니라 아버지의 뜻을 구하신 예수님을 오늘 따라가게 하소서."
+      key: "2026-08-27", date: "2026. 08. 27 (목)",
+      title: "말씀하옵소서, 듣겠나이다",
+      ref: "사무엘상 3:10",
+      verse: "사무엘이 이르되 말씀하옵소서 주의 종이 듣겠나이다",
+      body: "이번 주말 수련회의 주제가 '하나님의 시간 — 사무엘상'입니다. 어린 사무엘의 위대함은 능력이 아니라 듣는 자세였습니다. 수련회를 앞두고, 듣는 마음을 미리 준비합시다.",
+      prayer: "말씀하시면 듣겠다는 사무엘의 마음으로 수련회를 준비하게 하소서."
     },
     {
-      key: "2026-08-21", date: "2026. 08. 21 (금)",
-      title: "묵상하는 사람의 복",
-      ref: "시편 1:2–3",
-      verse: "오직 여호와의 율법을 즐거워하여 그의 율법을 주야로 묵상하는도다 그는 시냇가에 심은 나무가 철을 따라 열매를 맺으며",
-      body: "오늘 저녁 7시는 금요 성경통독의 시간입니다. 시냇가의 나무는 하루아침에 자라지 않습니다. 매주 함께 읽는 이 시간이 뿌리가 되어, 철을 따라 열매 맺는 삶으로 이어집니다.",
-      prayer: "말씀 곁에 심긴 나무처럼, 마르지 않는 뿌리를 내리게 하소서."
+      key: "2026-08-28", date: "2026. 08. 28 (금)",
+      title: "날을 계수하는 지혜",
+      ref: "시편 90:12",
+      verse: "우리에게 우리 날 계수함을 가르치사 지혜로운 마음을 얻게 하소서",
+      body: "수련회 전날입니다. '하나님의 시간'이라는 주제처럼, 내 시간표가 아니라 하나님의 시간표를 배우는 이틀이 되길 소망합니다. 오늘 저녁 7시 금요 성경통독으로 마음을 예열합시다.",
+      prayer: "내 날들이 주님의 시간 안에 있음을 배우는 수련회가 되게 하소서."
     },
     {
-      key: "2026-08-22", date: "2026. 08. 22 (토)",
-      title: "주의 뜻이면",
-      ref: "야고보서 4:15",
-      verse: "너희가 도리어 말하기를 주의 뜻이면 우리가 살기도 하고 이것이나 저것을 하리라 할 것이거늘",
-      body: "다음 주간의 계획을 세우는 토요일, '주의 뜻이면'이라는 한마디를 계획 앞에 붙여 봅시다. 내일은 '하나님의 뜻' 두 번째 말씀이 이어집니다. 기대함으로 주일을 준비합시다.",
-      prayer: "제 모든 계획 위에 '주의 뜻이면'을 새기며 내일 예배를 사모하게 하소서."
+      key: "2026-08-29", date: "2026. 08. 29 (토)",
+      title: "에벤에셀 — 여기까지 도우셨다",
+      ref: "사무엘상 7:12",
+      verse: "사무엘이 돌을 취하여 미스바와 센 사이에 세워 이르되 여호와께서 여기까지 우리를 도우셨다 하고",
+      body: "오늘부터 여름수련회입니다(14:00 개회예배, 오륜비전빌리지). 사무엘이 세운 돌의 이름처럼, 여기까지 도우신 하나님을 기억하고 앞으로의 시간을 맡기는 자리가 되길 바랍니다. 세면도구·수건·성경책·텀블러 챙기셨지요?",
+      prayer: "여기까지 도우신 주님께 감사하며, 은혜의 이틀을 허락하소서."
     }
   ],
 
@@ -636,23 +649,20 @@ $("notice-list").innerHTML = SITE_DATA.notices.map(n => `<li>${n}</li>`).join(""
 
 $("video-grid").innerHTML = SITE_DATA.sermons.map(s => `
   <article class="video-card">
-    <div class="audio-frame">
-      <span class="cross">✝</span>
-      <span class="label">SERMON AUDIO</span>
-      ${s.audioFile
-        ? `<audio controls preload="none">
-             <source src="${s.audioFile}" type="${s.audioFile.toLowerCase().endsWith(".m4a") ? "audio/mp4" : "audio/mpeg"}">
-             브라우저가 음성 재생을 지원하지 않습니다.
-           </audio>`
-        : `<div class="empty">음성 업로드 준비 중</div>`}
+    <div class="video-frame">${s.youtubeId
+      ? `<iframe src="https://www.youtube-nocookie.com/embed/${s.youtubeId}?rel=0" title="${s.title}"
+           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+           referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>`
+      : `<div class="empty"><span class="cross">✝</span><span>${s.audio ? "아래에서 설교 음성을 들으실 수 있습니다" : "설교 음성 준비 중"}</span></div>`}
     </div>
     <div class="video-body">
       <p class="date">${s.date}</p>
       <h4>${s.title}</h4>
       <p class="ref">${s.ref}</p>
+      ${s.audio ? `<audio controls preload="none" src="${s.audio}">브라우저가 음성 재생을 지원하지 않습니다.</audio>` : ``}
       <ul>${s.summary.map(li => `<li>${li}</li>`).join("")}</ul>
-      ${s.audioFile
-        ? `<a class="yt-link" href="${s.audioFile}" download>음성 파일 받기 →</a>`
+      ${s.youtubeId
+        ? `<a class="yt-link" href="https://www.youtube.com/watch?v=${s.youtubeId}" target="_blank" rel="noopener">유튜브에서 보기 →</a>`
         : ``}
     </div>
   </article>`).join("");
