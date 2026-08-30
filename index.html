@@ -216,6 +216,11 @@ table.sched td.first{font-weight:700;background:var(--paper)}
 .lb-prev,.lb-next{top:50%;transform:translateY(-50%);font-size:3rem;padding:20px}
 .lb-prev{left:8px}.lb-next{right:8px}
 
+.album-tabs{display:flex;gap:10px;margin-bottom:26px;flex-wrap:wrap}
+.album-tabs .tab{background:transparent;border:1px solid var(--navy);color:var(--navy);padding:9px 22px;font-size:.88rem;cursor:pointer;border-radius:3px;transition:background .2s,color .2s}
+.album-tabs .tab.on,.album-tabs .tab:hover{background:var(--navy);color:#fff}
+.album-empty{color:var(--muted);font-size:.92rem;padding:38px 20px;border:1px dashed var(--line);border-radius:6px;text-align:center}
+
 /* ── 디자인 세련화 레이어 ─────────────── */
 body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 .hero{background:radial-gradient(ellipse 120% 70% at 50% -10%,#24375E 0%,var(--navy) 55%)}
@@ -292,7 +297,7 @@ footer .greek{font-family:var(--serif);font-style:italic;color:#66738C}
     <div class="worship-grid">
       <div class="card">
         <span class="badge">주일 말씀</span>
-        <p class="sermon-title" id="sermon-title">사무엘상 강해 (3)</p>
+        <p class="sermon-title" id="sermon-title">사무엘상 강해 (3) — 사울 왕의 추락 / 하나님의 마음에 합한 자</p>
         <p class="sermon-ref" id="sermon-ref">사도행전 13:22 · 김태윤 담임목사 · 여름수련회 주일예배</p>
         <h3>예배 순서</h3>
         <ul class="order" id="order-list"></ul>
@@ -418,6 +423,7 @@ footer .greek{font-family:var(--serif);font-style:italic;color:#66738C}
     <p class="eyebrow">GALLERY</p>
     <h2 class="sec">교회앨범</h2>
     <p class="sec-desc">함께 예배하고, 함께 나누고, 함께 걸어온 순간들입니다. 사진을 누르면 크게 볼 수 있습니다.</p>
+    <div class="album-tabs" id="album-tabs"></div>
     <div class="gallery" id="gallery"></div>
   </div>
 </section>
@@ -479,7 +485,7 @@ const SITE_DATA = {
   bulletinPdf: "bulletins/2026-08-30.pdf",
 
   // ── 주일 / 수요 말씀 ──
-  sermon: { title: "사무엘상 강해 (3)", ref: "사도행전 13:22 · 김태윤 담임목사 · 여름수련회 주일예배" },
+  sermon: { title: "사무엘상 강해 (3) — 사울 왕의 추락 / 하나님의 마음에 합한 자", ref: "사도행전 13:22 · 김태윤 담임목사 · 여름수련회 주일예배" },
   wednesday: { title: "다윗과 압살롬", ref: "사무엘하 14:1–33 · 김태윤 담임목사" },
 
   // ── 예배 순서 ──
@@ -512,14 +518,35 @@ const SITE_DATA = {
   sermons: [
     {
       date: "2026. 08. 30",
-      title: "사무엘상 강해 (3)",
+      title: "사무엘상 강해 (3) — 사울 왕의 추락 / 하나님의 마음에 합한 자",
       ref: "사도행전 13:22 · 여름수련회 주일예배",
       youtubeId: "",
-      audio: "",
+      audio: "audio/2026-08-30.mp3",
       summary: [
         "“내가 이새의 아들 다윗을 만나니 내 마음에 맞는 사람이라” — 사무엘상이 가리키는 사람, 다윗 (행 13:22).",
-        "수련회 ‘하나님의 시간’의 마지막 강해로, 하나님의 마음에 맞는 사람의 길을 배웁니다.",
-        "※ 설교 음성과 요약은 수련회 후 업데이트됩니다."
+        "스스로 높아진 사울은 무너지고, 하나님의 마음을 따라간 다윗이 세워집니다. 수련회 ‘하나님의 시간’의 결론입니다."
+      ]
+    },
+    {
+      date: "2026. 08. 29",
+      title: "사무엘상 강해 (2) — 엘리 가문에서 왕의 요구까지",
+      ref: "여름수련회 둘째 강해 · 김태윤 담임목사",
+      youtubeId: "",
+      audio: "audio/2026-08-29-2.mp3",
+      summary: [
+        "하나님보다 아들들을 중히 여긴 엘리 가문의 몰락, 그리고 “우리에게 왕을 주소서”라던 이스라엘의 요구.",
+        "하나님의 시간을 기다리지 못하고 사람의 방식을 구할 때 무엇을 잃는지 배웁니다."
+      ]
+    },
+    {
+      date: "2026. 08. 29",
+      title: "사무엘상 강해 (1) — 한나의 기도에서 다윗의 노래로",
+      ref: "여름수련회 첫째 강해 · 김태윤 담임목사",
+      youtubeId: "",
+      audio: "audio/2026-08-29-1.mp3",
+      summary: [
+        "한 여인의 눈물의 기도로 열리는 사무엘상 — 한나의 기도에서 다윗의 노래까지, 책 전체를 관통하는 흐름을 조망합니다.",
+        "여름수련회 ‘하나님의 시간’ 개회 강해입니다."
       ]
     },
     {
@@ -530,8 +557,7 @@ const SITE_DATA = {
       audio: "audio/2026-08-23.mp3",
       summary: [
         "까닭 없이 닥친 고난 앞에 선 욥 — 하늘의 회의에서 시작된, 사람이 알 수 없는 하나님의 경륜 (욥 1:6–12).",
-        "고난은 하나님의 부재가 아니라, 여전히 하나님의 손안에 있는 시간입니다.",
-        "※ 자세한 설교 요약은 설교 노트를 받아 곧 보완됩니다."
+        "고난은 하나님의 부재가 아니라, 여전히 하나님의 손안에 있는 시간입니다."
       ]
     },
     {
@@ -632,8 +658,13 @@ const SITE_DATA = {
     ["북한", "박원준 선교사", "요구르트 공장, 아동병원, 사역자 리쿠르트와 양육 사역을 위하여"]
   ],
 
-  // ── 교회앨범 (photos 폴더에 사진 추가 후 여기에 한 줄씩 등록) ──
-  gallery: [
+  // ── 교회앨범: 카테고리별 사진첩 (albums 배열에 카테고리 추가) ──
+  albums: [
+    { name: "2026 여름수련회", photos: [
+      // 수련회 사진이 도착하면 여기에 ["photos/파일명.jpg", "설명"] 형식으로 추가됩니다.
+    ] },
+    { name: "2025년 사진첩", photos: [
+
     ["photos/photo-11.jpg", "창립 25주년 기념예배 · 김광준 원로목사 추대 감사예배 (2026. 3. 8)"],
     ["photos/photo-06.jpg", "창립 25주년 감사예배를 마치고"],
     ["photos/photo-04.jpg", "창립 25주년 기념예배 말씀 — 깨어나십시오"],
@@ -647,6 +678,7 @@ const SITE_DATA = {
     ["photos/photo-09.jpg", "주일 공동식사 — 사랑의 섬김"],
     ["photos/photo-02.jpg", "카페에서의 친교"],
     ["photos/photo-10.jpg", "예배당 — 세계선교교회"]
+    ] }
   ]
 };
 /* ========================== 데이터 끝 ========================== */
@@ -710,18 +742,29 @@ $("mission-pray").innerHTML = SITE_DATA.missionPrayers
 document.querySelectorAll(".menu a").forEach(a =>
   a.addEventListener("click", () => document.querySelector(".menu").classList.remove("open")));
 
-// ── 교회앨범 갤러리 + 라이트박스 ──
-$("gallery").innerHTML = SITE_DATA.gallery.map(([src, cap], i) => `
-  <figure class="g-item" data-i="${i}">
-    <img src="${src}" alt="${cap}" loading="lazy">
-    <figcaption class="cap">${cap}</figcaption>
-  </figure>`).join("");
-
+// ── 교회앨범: 카테고리 탭 + 갤러리 + 라이트박스 ──
+let curPhotos = [];
 let lbIndex = 0;
 const lb = $("lightbox");
+function renderAlbum(i){
+  curPhotos = SITE_DATA.albums[i].photos;
+  $("album-tabs").innerHTML = SITE_DATA.albums.map((a, j) =>
+    `<button class="tab${j===i?" on":""}" data-j="${j}">${a.name}</button>`).join("");
+  $("gallery").innerHTML = curPhotos.length
+    ? curPhotos.map(([src, cap], k) => `
+      <figure class="g-item reveal in" data-i="${k}">
+        <img src="${src}" alt="${cap}" loading="lazy">
+        <figcaption class="cap">${cap}</figcaption>
+      </figure>`).join("")
+    : `<p class="album-empty">사진을 준비 중입니다. 곧 만나보실 수 있습니다.</p>`;
+  document.querySelectorAll("#album-tabs .tab").forEach(b =>
+    b.addEventListener("click", () => renderAlbum(+b.dataset.j)));
+  document.querySelectorAll(".g-item").forEach(el =>
+    el.addEventListener("click", () => openLb(+el.dataset.i)));
+}
 function openLb(i){
-  lbIndex = (i + SITE_DATA.gallery.length) % SITE_DATA.gallery.length;
-  const [src, cap] = SITE_DATA.gallery[lbIndex];
+  lbIndex = (i + curPhotos.length) % curPhotos.length;
+  const [src, cap] = curPhotos[lbIndex];
   $("lb-img").src = src;
   $("lb-img").alt = cap;
   $("lb-caption").textContent = cap;
@@ -729,8 +772,7 @@ function openLb(i){
   document.body.style.overflow = "hidden";
 }
 function closeLb(){ lb.classList.remove("open"); document.body.style.overflow = ""; }
-document.querySelectorAll(".g-item").forEach(el =>
-  el.addEventListener("click", () => openLb(+el.dataset.i)));
+renderAlbum(SITE_DATA.albums[0].photos.length ? 0 : 1);
 document.querySelector(".lb-close").addEventListener("click", closeLb);
 document.querySelector(".lb-prev").addEventListener("click", e => { e.stopPropagation(); openLb(lbIndex - 1); });
 document.querySelector(".lb-next").addEventListener("click", e => { e.stopPropagation(); openLb(lbIndex + 1); });
