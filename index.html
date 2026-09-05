@@ -194,6 +194,8 @@ table.sched td.first{font-weight:700;background:var(--paper)}
 .info-list{list-style:none}
 .info-list li{display:flex;gap:16px;padding:11px 0;border-bottom:1px dashed var(--line);font-size:.93rem}
 .info-list .k{min-width:110px;font-weight:700;color:var(--navy)}
+.info-list a{border-bottom:1px solid var(--gold);padding-bottom:1px}
+.info-list a:hover{color:var(--gold)}
 .serve{display:grid;grid-template-columns:1fr 1fr;gap:4px 20px;font-size:.9rem}
 .serve div{padding:7px 0;border-bottom:1px dashed var(--line)}
 .serve span{color:var(--muted);margin-right:10px;font-size:.82rem}
@@ -270,7 +272,7 @@ footer .greek{font-family:var(--serif);font-style:italic;color:#66738C}
 <div class="hero" id="top">
   <div class="wrap">
     <div class="mast">
-      <div class="issue"><span id="mast-issue">제 25권 35호</span><span id="mast-date">2026년 8월 30일</span></div>
+      <div class="issue"><span id="mast-issue">제 25권 37호</span><span id="mast-date">2026년 9월 6일</span></div>
       <h1>세계선교교회</h1>
       <div class="en-name">WORLD MISSION CHURCH</div>
       <p class="greek">Σὺ εἶ ὁ χριστός, ὁ υἱὸς τοῦ θεοῦ τοῦ ζῶντος.
@@ -293,17 +295,17 @@ footer .greek{font-family:var(--serif);font-style:italic;color:#66738C}
   <div class="wrap">
     <p class="eyebrow">THIS WEEK</p>
     <h2 class="sec">이번 주 예배</h2>
-    <p class="sec-desc" id="worship-date">2026년 8월 30일 주일 · 여름수련회 현장 예배 · 인도 김태윤 목사</p>
+    <p class="sec-desc" id="worship-date">2026년 9월 6일 주일 · 오전 11시 · 말씀 김광준 원로목사</p>
     <div class="worship-grid">
       <div class="card">
         <span class="badge">주일 말씀</span>
-        <p class="sermon-title" id="sermon-title">사무엘상 강해 (3) — 사울 왕의 추락 / 하나님의 마음에 합한 자</p>
-        <p class="sermon-ref" id="sermon-ref">사도행전 13:22 · 김태윤 담임목사 · 여름수련회 주일예배</p>
+        <p class="sermon-title" id="sermon-title">내 사랑 안에 거하라</p>
+        <p class="sermon-ref" id="sermon-ref">요한복음 15:9–11 · 김광준 원로목사</p>
         <h3>예배 순서</h3>
         <ul class="order" id="order-list"></ul>
         <p style="margin-top:16px;font-size:.85rem;color:var(--muted)">※ 침례받기 원하시는 분은 폐회 찬송 시 강대상 앞으로 나오시기 바랍니다.</p>
         <div style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap">
-          <a class="btn" id="bulletin-link" href="bulletins/2026-08-30.pdf">이번 주 주보 (PDF)</a>
+          <a class="btn" id="bulletin-link" href="bulletins/2026-09-06.pdf">이번 주 주보 (PDF)</a>
           <a class="btn ghost" href="#sermons">지난 설교 듣기</a>
         </div>
       </div>
@@ -319,8 +321,8 @@ footer .greek{font-family:var(--serif);font-style:italic;color:#66738C}
         </div>
         <div class="card">
           <h3>수요 말씀</h3>
-          <p class="sermon-title" style="font-size:1.1rem" id="wed-title">다윗과 압살롬</p>
-          <p class="sermon-ref" id="wed-ref">사무엘하 14:1–33 · 김태윤 담임목사</p>
+          <p class="sermon-title" style="font-size:1.1rem" id="wed-title">사나 죽으나</p>
+          <p class="sermon-ref" id="wed-ref">사무엘하 15:1–37 · 김태윤 담임목사</p>
         </div>
       </div>
     </div>
@@ -343,6 +345,7 @@ footer .greek{font-family:var(--serif);font-style:italic;color:#66738C}
     <p class="eyebrow">SERMON ARCHIVE</p>
     <h2 class="sec">설교 다시듣기 · 말씀 요약</h2>
     <p class="sec-desc">주일 설교 음성과 핵심 요약을 매주 업데이트합니다.</p>
+    <div class="album-tabs" id="sermon-tabs"></div>
     <div class="video-grid" id="video-grid"></div>
   </div>
 </section>
@@ -355,18 +358,17 @@ footer .greek{font-family:var(--serif);font-style:italic;color:#66738C}
     <p class="sec-desc">오늘의 묵상 말씀과 하반기 성경공부·통독 일정입니다.</p>
     <div class="devo-grid">
       <div class="devo-card">
-        <p class="d-date" id="devo-date">2026. 08. 30 (주일)</p>
-        <h3 id="devo-title">내 마음에 맞는 사람</h3>
-        <p class="d-ref" id="devo-ref">사도행전 13:22</p>
-        <blockquote id="devo-verse">내가 이새의 아들 다윗을 만나니 내 마음에 맞는 사람이라 내 뜻을 다 이루리라 하시더니</blockquote>
-        <p class="d-body" id="devo-body">하나님은 다윗을 '내 마음에 맞는 사람'이라 부르셨습니다. 완벽해서가 아니라, 하나님의 마음을 따라가려 했기 때문입니다. 수련회의 은혜가 그 길의 시작이 되길 바랍니다.</p>
-        <p class="d-pray" id="devo-pray">수련회에서 받은 은혜로, 하나님의 마음에 맞는 사람의 길을 걷게 하소서.</p>
+        <p class="d-date" id="devo-date">2026. 09. 06 (주일)</p>
+        <h3 id="devo-title">내 사랑 안에 거하라</h3>
+        <p class="d-ref" id="devo-ref">요한복음 15:9</p>
+        <blockquote id="devo-verse">아버지께서 나를 사랑하신 것 같이 나도 너희를 사랑하였으니 나의 사랑 안에 거하라</blockquote>
+        <p class="d-body" id="devo-body">신앙은 사랑을 얻으려는 몸부림이 아니라, 이미 부어진 사랑 안에 머무는 것입니다. 9월 첫 주일, 그 사랑 안에서 예배로 한 달을 엽시다.</p>
+        <p class="d-pray" id="devo-pray">오늘 예배에서 주님의 사랑 안에 거하는 법을 배우게 하소서.</p>
       </div>
       <div class="card">
         <h3>2026 하반기 성경공부 일정 <span style="font-weight:400;font-size:.8rem;color:var(--muted)">장소 · 세계선교교회</span></h3>
         <table class="sched">
           <tr><th>월</th><th>본문</th><th>1주</th><th>2주</th><th>3주</th><th>4주</th></tr>
-          <tr><td class="first">8월</td><td>룻기</td><td colspan="3" style="color:var(--muted)">—</td><td>사무엘상</td></tr>
           <tr><td class="first">9월</td><td>사무엘하</td><td>삼하 1–7</td><td>삼하 8–12</td><td>삼하 13–18</td><td>삼하 19–24</td></tr>
           <tr><td class="first">10월</td><td>열왕기상</td><td>왕상 1–6</td><td>왕상 7–11</td><td>왕상 12–16</td><td>왕상 17–22</td></tr>
           <tr><td class="first">11월</td><td>열왕기하</td><td colspan="4">열왕기하</td></tr>
@@ -388,9 +390,9 @@ footer .greek{font-family:var(--serif);font-style:italic;color:#66738C}
         <h3>주일예배 기도순서</h3>
         <table class="sched">
           <tr><th>월</th><th>1주</th><th>2주</th><th>3주</th><th>4주</th><th>5주</th></tr>
-          <tr><td class="first">8월</td><td>김준회 장로</td><td>서화숙 사모</td><td>성기옥 권사</td><td>엄선진 권사</td><td>이성자 권사</td></tr>
           <tr><td class="first">9월</td><td>이기형 장로</td><td>이성희 권사</td><td>김은숙 사모</td><td>성기옥 권사</td><td>—</td></tr>
           <tr><td class="first">10월</td><td>김준회 장로</td><td>엄선진 권사</td><td>성기옥 권사</td><td>서화숙 사모</td><td>—</td></tr>
+          <tr><td class="first">11월</td><td>김은숙 사모</td><td>김준회 장로</td><td>이성희 권사</td><td>이성자 권사</td><td>이기형 장로</td></tr>
         </table>
       </div>
       <div class="card">
@@ -448,8 +450,8 @@ footer .greek{font-family:var(--serif);font-style:italic;color:#66738C}
         <h3>교회 안내</h3>
         <ul class="info-list">
           <li><span class="k">주소</span><span>경기도 성남시 분당구 정자동 121 상록마을 우성종합상가 3층</span></li>
-          <li><span class="k">담임목사</span><span>김태윤 목사 (010-4455-1207)</span></li>
-          <li><span class="k">교단</span><span>그리스도의 교회</span></li>
+          <li><span class="k">담임목사</span><span>김태윤 목사 · 010-4455-1207 · <a href="mailto:7tykim@gmail.com">7tykim@gmail.com</a></span></li>
+          <li><span class="k">교단</span><span><a href="https://www.cco.or.kr/" target="_blank" rel="noopener">그리스도의교회협의회</a></span></li>
         </ul>
       </div>
       <div class="card">
@@ -480,44 +482,57 @@ footer .greek{font-family:var(--serif);font-style:italic;color:#66738C}
    ============================================================ */
 const SITE_DATA = {
   // ── 주보 발행 정보 ──
-  issue: "제 25권 35호",
-  date: "2026년 8월 30일",
-  bulletinPdf: "bulletins/2026-08-30.pdf",
+  issue: "제 25권 37호",
+  date: "2026년 9월 6일",
+  bulletinPdf: "bulletins/2026-09-06.pdf",
 
   // ── 주일 / 수요 말씀 ──
-  sermon: { title: "사무엘상 강해 (3) — 사울 왕의 추락 / 하나님의 마음에 합한 자", ref: "사도행전 13:22 · 김태윤 담임목사 · 여름수련회 주일예배" },
-  wednesday: { title: "다윗과 압살롬", ref: "사무엘하 14:1–33 · 김태윤 담임목사" },
+  sermon: { title: "내 사랑 안에 거하라", ref: "요한복음 15:9–11 · 김광준 원로목사" },
+  wednesday: { title: "사나 죽으나", ref: "사무엘하 15:1–37 · 김태윤 담임목사" },
 
   // ── 예배 순서 ──
   order: [
     ["예배로의 부름 — 참회와 감사 그리고 찬양, 기도", "다 함께"],
-    ["찬송 — 왕이신 나의 하나님", "다 함께"],
-    ["교독문 35 (시편 84편)", "다 함께"],
+    ["찬송 37장 주 예수 이름 높이어", "다 함께"],
+    ["교독문 37 (시편 91편)", "다 함께"],
     ["신앙고백 — 주는 그리스도시요 살아계신 하나님의 아들이시니이다", "다 함께"],
-    ["찬송 435장 나의 영원하신 기업", "다 함께"],
-    ["오늘의 기도", "이성자 권사"],
+    ["찬송 438장 내 영혼이 은총 입어", "다 함께"],
+    ["오늘의 기도", "이기형 장로"],
     ["봉헌 50장 내게 있는 모든 것을 · 봉헌기도", "인도자"],
     ["교회소식 · 선교지소식", "인도자"],
-    ["성경봉독 사도행전 13:22", "다 함께"],
-    ["말씀 — 사무엘상 강해 (3)", "김태윤 목사"],
+    ["성경봉독 요한복음 15:9–11", "다 함께"],
+    ["말씀 — 내 사랑 안에 거하라", "김광준 목사"],
     ["주의 만찬 (만찬위원 이기형 · 김준회 장로)", "다 함께"],
     ["찬송 270장 변찮는 주님의 사랑과", "다 함께"],
-    ["축도", "김태윤 목사"]
+    ["축도", "김광준 목사"]
   ],
 
   // ── 교회소식 ──
   notices: [
-    "2026년 8월 다섯째 주일 예배에 오신 성도님들 모두 주님의 이름으로 환영합니다.",
-    "여름수련회가 진행되고 있습니다(8/29 토~30 주일, 오륜비전빌리지 · 주제: 하나님의 시간, 사무엘상). 주님의 은혜에 반응하는 성도가 되길 소망합니다. 이번 주일예배는 수련회 현장에서 오전 9시에 드립니다(벧엘하우스 세미나실 2).",
-    "그교협 중앙지방회 총회결과 — 회장: 김태윤 목사(세계선교), 부회장: 서중원 목사(돈암), 총무: 김정관 목사(예뜨랑).",
-    "그교협 2026년 총회 일정 — 9/28(월)~29(화) 1박 2일, 대천 한화리조트. 등록비: 선등록(9/10까지) 60,000원, 현장등록 80,000원."
+    "2026년 9월 첫째 주일 예배에 오신 성도님들 모두 주님의 이름으로 환영합니다.",
+    "오늘 설교는 김광준 원로목사님이 전해주십니다. 은혜의 시간 되시길 바랍니다. 점심식사 후에는 9월 성경공부(사무엘하)가 예정대로 진행됩니다 — 주님의 말씀을 더욱 사모하는 삶이 되길 소망합니다.",
+    "그교협 2026년 총회 — 9/28(월)~29(화) 1박 2일, 대천 한화리조트. 등록비: 선등록(9/10까지) 60,000원, 현장등록 80,000원. 선등록 마감이 이번 주 목요일입니다.",
+    "2026 하반기 성경공부 일정 안내 — 장소: 세계선교교회 (아래 묵상·통독 일정표 참고)"
   ],
 
   // ── 설교 말씀 (audio: 음성 mp3 경로 — 매주 audio 폴더에 올린 파일명 입력)
   //    youtubeId는 영상이 있을 때만 사용, 없으면 "" 로 둡니다.
   sermons: [
     {
+      date: "2026. 09. 06",
+      series: "특별 말씀",
+      title: "내 사랑 안에 거하라",
+      ref: "요한복음 15:9–11 · 김광준 원로목사",
+      youtubeId: "",
+      audio: "",
+      summary: [
+        "“아버지께서 나를 사랑하신 것 같이 나도 너희를 사랑하였으니 나의 사랑 안에 거하라” (요 15:9).",
+        "9월 첫 주일, 김광준 원로목사님이 전하시는 말씀 — 사랑 안에 거하는 자에게 충만한 기쁨이 약속됩니다 (11절)."
+      ]
+    },
+    {
       date: "2026. 08. 30",
+      series: "사무엘상 강해",
       title: "사무엘상 강해 (3) — 사울 왕의 추락 / 하나님의 마음에 합한 자",
       ref: "사도행전 13:22 · 여름수련회 주일예배",
       youtubeId: "",
@@ -529,6 +544,7 @@ const SITE_DATA = {
     },
     {
       date: "2026. 08. 29",
+      series: "사무엘상 강해",
       title: "사무엘상 강해 (2) — 엘리 가문에서 왕의 요구까지",
       ref: "여름수련회 둘째 강해 · 김태윤 담임목사",
       youtubeId: "",
@@ -540,6 +556,7 @@ const SITE_DATA = {
     },
     {
       date: "2026. 08. 29",
+      series: "사무엘상 강해",
       title: "사무엘상 강해 (1) — 한나의 기도에서 다윗의 노래로",
       ref: "여름수련회 첫째 강해 · 김태윤 담임목사",
       youtubeId: "",
@@ -551,6 +568,7 @@ const SITE_DATA = {
     },
     {
       date: "2026. 08. 23",
+      series: "하나님의 뜻",
       title: "하나님의 뜻 (2)",
       ref: "욥기 1:6–12 · ‘하나님의 뜻’ 주제설교 둘째 주",
       youtubeId: "",
@@ -562,6 +580,7 @@ const SITE_DATA = {
     },
     {
       date: "2026. 08. 16",
+      series: "하나님의 뜻",
       title: "하나님의 뜻 (1)",
       ref: "마태복음 6:10, 로마서 8:28 · ‘하나님의 뜻’ 주제설교 첫째 주",
       youtubeId: "",
@@ -574,6 +593,7 @@ const SITE_DATA = {
     },
     {
       date: "2026. 08. 09",
+      series: "이사야서 강해",
       title: "새 일을 행하시는 주님",
       ref: "이사야 66:1–24 · 이사야서 강해 마지막",
       youtubeId: "oBAVJUTwG18",
@@ -591,66 +611,66 @@ const SITE_DATA = {
   //    key는 "YYYY-MM-DD" 형식. 매주 6개를 새로 채워 넣으면 됩니다.
   devotions: [
     {
-      key: "2026-08-30", date: "2026. 08. 30 (주일)",
-      title: "내 마음에 맞는 사람",
-      ref: "사도행전 13:22",
-      verse: "내가 이새의 아들 다윗을 만나니 내 마음에 맞는 사람이라 내 뜻을 다 이루리라 하시더니",
-      body: "수련회 마지막 날, 수련회 현장에서 드리는 주일예배입니다. 하나님은 다윗을 '내 마음에 맞는 사람'이라 부르셨습니다. 완벽해서가 아니라, 하나님의 마음을 따라가려 했기 때문입니다. 이번 수련회의 은혜가 그 길의 시작이 되길 바랍니다.",
-      prayer: "수련회에서 받은 은혜로, 하나님의 마음에 맞는 사람의 길을 걷게 하소서."
+      key: "2026-09-06", date: "2026. 09. 06 (주일)",
+      title: "내 사랑 안에 거하라",
+      ref: "요한복음 15:9",
+      verse: "아버지께서 나를 사랑하신 것 같이 나도 너희를 사랑하였으니 나의 사랑 안에 거하라",
+      body: "9월 첫 주일, 김광준 원로목사님이 말씀을 전하십니다. 신앙은 사랑을 얻으려는 몸부림이 아니라, 이미 부어진 사랑 안에 머무는 것입니다. 예배 후에는 9월 성경공부(사무엘하)도 시작됩니다.",
+      prayer: "오늘 예배에서 주님의 사랑 안에 거하는 법을 배우게 하소서."
     },
     {
-      key: "2026-08-31", date: "2026. 08. 31 (월)",
-      title: "중심을 보시는 하나님",
-      ref: "사무엘상 16:7",
-      verse: "내가 보는 것은 사람과 같지 아니하니 사람은 외모를 보거니와 나 여호와는 중심을 보느니라",
-      body: "다윗이 선택되던 날의 말씀입니다. 수련회를 마치고 일상으로 돌아온 첫 월요일 — 사람들 앞에 보이는 모습보다, 하나님 앞에 서는 중심을 가꾸는 한 주가 되길 바랍니다.",
-      prayer: "보이는 것을 꾸미기보다 중심을 정직하게 가꾸는 한 주가 되게 하소서."
+      key: "2026-09-07", date: "2026. 09. 07 (월)",
+      title: "붙어 있어야 삽니다",
+      ref: "요한복음 15:5",
+      verse: "나는 포도나무요 너희는 가지라 그가 내 안에, 내가 그 안에 거하면 사람이 열매를 많이 맺나니 나를 떠나서는 너희가 아무 것도 할 수 없음이라",
+      body: "가지는 애써서 열매를 짜내지 않습니다. 나무에 붙어 있으면 열매는 맺힙니다. 한 주의 시작, 능력보다 먼저 붙어 있음을 점검합시다.",
+      prayer: "오늘 하루 주님께 붙어 있는 가지로 살게 하소서."
     },
     {
-      key: "2026-09-01", date: "2026. 09. 01 (화)",
-      title: "아침마다 새로운 긍휼",
-      ref: "예레미야애가 3:22–23",
-      verse: "여호와의 인자와 긍휼이 무궁하시므로 우리가 진멸되지 아니함이니이다 이것들이 아침마다 새로우니 주의 성실하심이 크시도소이다",
-      body: "9월의 첫날입니다. 하나님의 긍휼은 이월되는 것이 아니라 아침마다 새로 공급됩니다. 지난 달의 아쉬움은 내려놓고, 오늘 새로 주시는 은혜로 새 달을 시작합시다.",
-      prayer: "아침마다 새로운 주의 긍휼을 힘입어 9월을 시작하게 하소서."
+      key: "2026-09-08", date: "2026. 09. 08 (화)",
+      title: "충만한 기쁨",
+      ref: "요한복음 15:11",
+      verse: "내가 이것을 너희에게 이름은 내 기쁨이 너희 안에 있어 너희 기쁨을 충만하게 하려 함이라",
+      body: "주님이 사랑 안에 거하라 하신 목적은 부담이 아니라 기쁨입니다. 내 기쁨이 아니라 '주님의 기쁨'이 내 안에 있는 것 — 그것이 마르지 않는 기쁨의 비밀입니다.",
+      prayer: "환경이 아니라 주님에게서 오는 기쁨으로 오늘을 채우소서."
     },
     {
-      key: "2026-09-02", date: "2026. 09. 02 (수)",
-      title: "화목하게 하는 사람",
-      ref: "마태복음 5:24",
-      verse: "예물을 제단 앞에 두고 먼저 가서 형제와 화목하고 그 후에 와서 예물을 드리라",
-      body: "오늘 수요예배는 다윗과 압살롬(삼하 14장) — 돌아왔지만 온전히 회복되지 못한 부자 관계를 다룹니다. 미뤄둔 화해는 저절로 이루어지지 않습니다. 먼저 다가가는 것이 예배자의 길입니다. 오늘 저녁 말씀 앞에 함께 앉읍시다.",
-      prayer: "미뤄둔 화해가 있다면 먼저 다가갈 용기를 주소서."
+      key: "2026-09-09", date: "2026. 09. 09 (수)",
+      title: "사나 죽으나",
+      ref: "사무엘하 15:21",
+      verse: "잇대가 왕께 대답하여 이르되 여호와의 살아 계심과 내 주 왕의 살아 계심으로 맹세하옵나니 진실로 내 주 왕께서 어느 곳에 계시든지 사나 죽으나 종도 그 곳에 있겠나이다",
+      body: "오늘 수요예배 본문입니다. 압살롬의 반역으로 다윗이 도망치던 날, 이방인 잇대는 오히려 왕 곁에 남았습니다. 형통할 때가 아니라 어려울 때 드러나는 것이 진짜 충성입니다. 오늘 저녁 말씀 앞에 함께 앉읍시다.",
+      prayer: "형편이 아니라 사랑으로 주님 곁에 남는 잇대의 충성을 주소서."
     },
     {
-      key: "2026-09-03", date: "2026. 09. 03 (목)",
-      title: "마음의 완전함으로",
-      ref: "시편 78:72",
-      verse: "이에 그가 그들을 자기 마음의 완전함으로 기르고 그의 손의 능숙함으로 그들을 지도하였도다",
-      body: "다윗의 목자 됨을 요약하는 한 구절입니다. 능숙한 손보다 앞서는 것은 완전한 마음이었습니다. 오늘 내가 맡은 자리에서, 기술보다 마음을 먼저 살펴봅시다.",
-      prayer: "맡겨주신 자리를 능력보다 먼저 진실한 마음으로 감당하게 하소서."
+      key: "2026-09-10", date: "2026. 09. 10 (목)",
+      title: "먼저 사랑하셨음이라",
+      ref: "요한일서 4:19",
+      verse: "우리가 사랑함은 그가 먼저 우리를 사랑하셨음이라",
+      body: "사랑 안에 거하는 삶의 뿌리는 언제나 '먼저'이신 하나님입니다. 오늘 누군가를 사랑하기 어렵다면, 나를 먼저 사랑하신 그 사랑을 다시 바라봅시다.",
+      prayer: "먼저 부어주신 사랑을 기억하며, 오늘 한 사람을 사랑하게 하소서."
     },
     {
-      key: "2026-09-04", date: "2026. 09. 04 (금)",
-      title: "주와 같은 이가 없나이다",
-      ref: "사무엘하 7:22",
-      verse: "그런즉 주 여호와여 주는 위대하시니 이는 우리 귀로 들은 대로는 주와 같은 이가 없고 주 외에는 신이 없음이니이다",
-      body: "오늘 저녁 7시 금요 성경통독은 사무엘하 1–7장입니다. 다윗 언약의 밤, 다윗은 받은 약속 앞에 앉아 이렇게 고백했습니다. 함께 읽으며 같은 고백에 이르는 저녁이 되길 바랍니다.",
-      prayer: "말씀을 읽는 저녁, 주와 같은 이가 없다는 고백이 제 것이 되게 하소서."
+      key: "2026-09-11", date: "2026. 09. 11 (금)",
+      title: "왕의 상에서 먹는 은총",
+      ref: "사무엘하 9:7",
+      verse: "다윗이 그에게 이르되 무서워하지 말라 내가 반드시 네 아버지 요나단으로 말미암아 네게 은총을 베풀리라 … 너는 항상 내 상에서 떡을 먹을지니라",
+      body: "오늘 저녁 7시 금요 성경통독은 사무엘하 8–12장입니다. 다윗이 므비보셋에게 베푼 은총은, 하나님이 우리에게 베푸신 은혜의 그림입니다. 함께 읽으며 그 은총의 자리에 앉읍시다.",
+      prayer: "자격 없는 저를 왕의 상에 앉히신 은총을 오늘 되새기게 하소서."
     },
     {
-      key: "2026-09-05", date: "2026. 09. 05 (토)",
-      title: "여호와의 집에 올라가자",
-      ref: "시편 122:1",
-      verse: "사람이 내게 말하기를 여호와의 집에 올라가자 할 때에 내가 기뻐하였도다",
-      body: "내일은 9월 첫 주일 — 예배 후 오후 1시 30분에는 주일 성경공부(사무엘하)도 시작됩니다. 의무가 아니라 기쁨으로 예배의 자리를 사모하며 주일을 준비합시다.",
-      prayer: "내일 예배의 자리를 기쁨으로 사모하며 오늘을 정돈하게 하소서."
+      key: "2026-09-12", date: "2026. 09. 12 (토)",
+      title: "아침에 듣는 인자한 말씀",
+      ref: "시편 143:8",
+      verse: "아침에 나로 하여금 주의 인자한 말씀을 듣게 하소서 내가 주를 의뢰함이니이다",
+      body: "한 주를 정돈하는 토요일입니다. 내일 주일 아침, 주의 인자한 말씀을 듣는 기대로 마음을 준비합시다.",
+      prayer: "내일 아침 예배의 자리에서 주의 음성을 듣게 하소서."
     }
   ],
 
   // ── 선교지 기도제목 ──
   missionPrayers: [
-    ["탄자니아", "박윤석·김은래 선교사", "선교사 훈련원 건축 진행, 10/1–11/4 한국 방문, 단기선교는 11월로 일정 조율 중"],
+    ["탄자니아", "박윤석·김은래 선교사", "선교사 훈련원 건축 진행, 10/1–11/4 한국 방문, 음베야 단기선교 11/22–12/1"],
     ["탄자니아", "세니 다니엘 목사", "STS(세키나 신학교), SPCT를 위하여"],
     ["파키스탄", "샤밈 선교사", "청소년·교육사역, Kanwal·Filza Qamar에게 새로운 길을 열어주시길"],
     ["미얀마", "오승현·김은정 선교사", "양곤 캠프, 선교사 부부와 자녀들(시언·민하)을 위하여"],
@@ -710,8 +730,13 @@ $("order-list").innerHTML = SITE_DATA.order
 
 $("notice-list").innerHTML = SITE_DATA.notices.map(n => `<li>${n}</li>`).join("");
 
-$("video-grid").innerHTML = SITE_DATA.sermons.map(s => `
-  <article class="video-card">
+const seriesNames = ["전체", ...new Set(SITE_DATA.sermons.map(s => s.series))];
+function renderSermons(name){
+  $("sermon-tabs").innerHTML = seriesNames.map(n =>
+    `<button class="tab${n === name ? " on" : ""}" data-n="${n}">${n}</button>`).join("");
+  const list = name === "전체" ? SITE_DATA.sermons : SITE_DATA.sermons.filter(s => s.series === name);
+  $("video-grid").innerHTML = list.map(s => `
+  <article class="video-card reveal in">
     <div class="video-frame">${s.youtubeId
       ? `<iframe src="https://www.youtube-nocookie.com/embed/${s.youtubeId}?rel=0" title="${s.title}"
            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -719,7 +744,7 @@ $("video-grid").innerHTML = SITE_DATA.sermons.map(s => `
       : `<div class="empty"><span class="cross">✝</span><span>${s.audio ? "아래에서 설교 음성을 들으실 수 있습니다" : "설교 음성 준비 중"}</span></div>`}
     </div>
     <div class="video-body">
-      <p class="date">${s.date}</p>
+      <p class="date">${s.date} · ${s.series}</p>
       <h4>${s.title}</h4>
       <p class="ref">${s.ref}</p>
       ${s.audio ? `<audio controls preload="none" src="${s.audio}">브라우저가 음성 재생을 지원하지 않습니다.</audio>` : ``}
@@ -729,6 +754,10 @@ $("video-grid").innerHTML = SITE_DATA.sermons.map(s => `
         : ``}
     </div>
   </article>`).join("");
+  document.querySelectorAll("#sermon-tabs .tab").forEach(b =>
+    b.addEventListener("click", () => renderSermons(b.dataset.n)));
+}
+renderSermons("전체");
 
 // 오늘 날짜에 맞는 묵상을 자동 선택 (일치하는 날이 없으면 지나간 것 중 가장 최근, 그것도 없으면 첫 번째)
 const today = new Date();
